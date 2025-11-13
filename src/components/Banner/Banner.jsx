@@ -1,8 +1,9 @@
 import React from "react";
-import bannerImg1 from "../../assets/vector1.png";
-import bannerImg2 from "../../assets/vector2.png";
 
-const Banner = () => {
+const Banner = ({ TaskStatusAdd, resolved }) => {
+	// import bannerImg1 from "../../assets/vector1.png";
+	// import bannerImg2 from "../../assets/vector2.png";
+
 	return (
 		<div className=" max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-3 my-15  ">
 			<div className="box-1 py-10 bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-center rounded-[10px]">
@@ -10,7 +11,7 @@ const Banner = () => {
 					In-Progress
 				</h1>
 				<span className="text-[60px] font-semibold text-white">
-					{/* {TaskStatusAdd.length} */}
+					{TaskStatusAdd.length}
 				</span>
 			</div>
 			<div className=" py-10 bg-gradient-to-r from-[#54CF68] to-[#00827A] text-center rounded-[10px]">
@@ -18,7 +19,7 @@ const Banner = () => {
 					Resolved
 				</h1>
 				<span className="text-[60px] font-semibold text-white">
-					{/* {resolved.length} */}
+					{resolved.length}
 				</span>
 			</div>
 		</div>

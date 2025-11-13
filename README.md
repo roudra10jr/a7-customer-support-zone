@@ -1,16 +1,42 @@
-# React + Vite
+## 1. What is JSX, and why is it used?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+JSX (JavaScript XML) is a syntax extension for JavaScript that looks similar to HTML. It allows you to write HTML-like code directly inside JavaScript. JSX is used in React because:
 
-Currently, two official plugins are available:
+-   It makes the code more readable and easier to write.
+-   It allows you to describe the UI declaratively.
+-   React converts JSX into `React.createElement()` calls behind the scenes, which constructs the virtual DOM.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 2. What is the difference between State and Props?
 
-## React Compiler
+Key Differences Between State and Props in React:
+Definition:  
+Props: Data passed from a parent component to a child component (like arguments in a function call).  
+State: Internal data managed and stored within a single component.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Source:  
+Props: Comes from external sources (e.g., parent component).  
+State: Initialized and maintained inside the component itself.
 
-## Expanding the ESLint configuration
+Mutability:  
+Props: Immutable (read-only) in the receiving component; cannot be directly modified by the child.  
+State: Mutable; can be updated using setState (class components) or the setter from useState (functional components).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Purpose/Usage:
+Props: Used to pass data, functions, or callbacks down the component tree for communication between parent and child.  
+State: Handles dynamic, local data like user inputs, counters, or toggles that change based on interactions or logic within the component.
+
+## 3. What is the useState hook, and how does it work?
+
+useState is a built-in React Hook that allows functional components to add and manage local state. Introduced in React 16.8, it enables stateful logic in functions without needing class components, promoting simpler, more reusable code.  
+const [state, setState] = useState(initialValue);  
+state : the current value of the state.  
+setState : a function to update the state.  
+initialValue : the initial value of the state.
+
+## 4. How can you share state between components in React?
+
+To share state between components in React, you can lift the state up to the nearest common parent and pass it down via props, or use the Context API to provide a shared state accessible by any nested component. For larger applications, state management libraries like Redux, Zustand, or Recoil can also be used.
+
+## 5. How is event handling done in React?
+
+Event handling in React is done using camelCase syntax and by passing a function reference instead of a string. React wraps native events into its own SyntheticEvent system for better cross-browser compatibility and performance. Event handlers are usually defined as functions and can access component state or props to update the UI dynamically.
